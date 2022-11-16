@@ -8,7 +8,7 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -17,22 +17,24 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
+        favicon: "./favicon.ico",
         title: 'JATE'
       }),
       new WebpackPwaManifest({
         name: 'Just Another Text Editor',
         short_name: 'JATE',
         description: 'Text Editor',
+        display: 'standalone',
         background_color: '#31a9e1',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+            sizes: [96, 128, 192, 256, 384, 512]
           },
         ],
-        startUrl: './',
+        startUrl: '/',
         fingerprints: false,
-        publicPath: './',
+        publicPath: '/',
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
