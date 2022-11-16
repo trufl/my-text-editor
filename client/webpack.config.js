@@ -25,6 +25,7 @@ module.exports = () => {
         short_name: 'JATE',
         description: 'Text Editor',
         display: 'standalone',
+        theme_color: '#31a9e1',
         background_color: '#31a9e1',
         icons: [
           {
@@ -35,6 +36,7 @@ module.exports = () => {
         startUrl: '/',
         fingerprints: false,
         publicPath: '/',
+        inject: true,
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
